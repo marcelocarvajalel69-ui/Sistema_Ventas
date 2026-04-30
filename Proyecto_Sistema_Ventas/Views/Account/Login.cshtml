@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "Acceder";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Botaniq Bake</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            background: #faf6f1;
+            color: #2a1f17;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-box {
+            background: white;
+            border: 1px solid #f2ead8;
+            padding: 50px 44px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(42,31,23,.08);
+        }
+
+        .brand {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .brand h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #2a1f17;
+        }
+
+        .brand span {
+            font-size: 10px;
+            letter-spacing: 5px;
+            color: #b89a6a;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: #b89a6a;
+            margin: 12px auto 0;
+        }
+
+        label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #7a6858;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #f2ead8;
+            background: #faf6f1;
+            font-family: 'Jost', sans-serif;
+            font-size: 14px;
+            color: #2a1f17;
+            outline: none;
+            transition: 0.3s;
+            margin-bottom: 20px;
+        }
+
+        input:focus {
+            border-color: #b89a6a;
+            background: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #2a1f17;
+            color: white;
+            border: none;
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 8px;
+        }
+
+        button:hover {
+            background: #b89a6a;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <div class="brand">
+            <h1>Botaniq</h1>
+            <span>Panel Administrativo</span>
+            <div class="divider"></div>
+        </div>
+
+        <form method="post">
+            <label>Correo</label>
+            <input type="email" name="correo" placeholder="admin@botaniqbake.com" required />
+
+            <label>Contraseña</label>
+            <input type="password" name="contrasena" placeholder="••••••••" required />
+
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+</body>
+</html>
