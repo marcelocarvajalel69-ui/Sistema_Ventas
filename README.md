@@ -76,3 +76,10 @@ alta calidad. El negocio opera bajo las siguientes reglas:
 - Un **Pedido** puede tener muchos **Productos** (a través de Detalle_Pedido)
 - Un **Producto** pertenece a una **Categoría**
 - Un **Usuario** puede dejar muchos **Comentarios**
+
+---
+
+## Login del Panel Administrador
+Pantalla de acceso exclusivo para administradores del sistema.
+
+![Login Admin](imagenes/imgLogin.png)
