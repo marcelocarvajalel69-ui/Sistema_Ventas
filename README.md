@@ -1,5 +1,5 @@
 # Sistema_Ventas
-Holaaaaaa
+
 ## Descripción del Negocio
 Botaniq Bake es una repostería artesanal ubicada en Uruguay
 que se especializa en la elaboración y venta de postres de
@@ -31,7 +31,7 @@ alta calidad. El negocio opera bajo las siguientes reglas:
 
 ### Usuario
 - id_usuario
-- nombre
+- nombre_completo (nombre,apellido)
 - correo
 - contraseña
 - rol (cliente / admin)
@@ -42,7 +42,6 @@ alta calidad. El negocio opera bajo las siguientes reglas:
 - descripcion
 - precio
 - imagen
-- id_categoria
 
 ### Categoria
 - id_categoria
@@ -53,20 +52,16 @@ alta calidad. El negocio opera bajo las siguientes reglas:
 - fecha
 - total
 - estado (pendiente / entregado)
-- id_usuario
 
 ### Detalle_Pedido
 - id_detalle
 - cantidad
 - subtotal
-- id_pedido
-- id_producto
 
 ### Comentario
 - id_comentario
 - texto
 - fecha
-- id_usuario
 
 ---
 
