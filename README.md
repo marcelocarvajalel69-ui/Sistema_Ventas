@@ -95,3 +95,9 @@ Se desea diseñar una base de datos para gestionar un sistema de ventas en líne
 ## Esquema Relacional
 
 ![Esquema](imagenes/Esquema.png)
+
+---
+
+## Dashboard del Panel Administrador
+
+![Dashboard](imagenes/Dashboard.png)

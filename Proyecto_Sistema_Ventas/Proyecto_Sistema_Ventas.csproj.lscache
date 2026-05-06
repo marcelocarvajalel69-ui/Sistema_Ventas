@@ -403,6 +403,7 @@ obj/Debug/net8.0/Proyecto_Sistema_Ventas.GeneratedMSBuildEditorConfig.editorconf
 [additionalFiles]
 Views/
  Account/Login.cshtml
+ Admin/Dashboard.cshtml
  Home/
   Index.cshtml
   Privacy.cshtml
@@ -416,6 +417,7 @@ Views/
 [dynamicFiles]
 Views/
  Account/Login.cshtml
+ Admin/Dashboard.cshtml
  Home/
   Index.cshtml
   Privacy.cshtml
