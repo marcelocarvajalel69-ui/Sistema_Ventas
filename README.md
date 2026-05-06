@@ -121,3 +121,9 @@ Se desea diseñar una base de datos para gestionar un sistema de ventas en líne
 ## Dashboard del Panel Administrador
 
 ![Dashboard](imagenes/Dashboard.png)
+
+---
+
+## Gestion (Productos)
+
+![Productos](imagenes/products.png)
