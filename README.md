@@ -26,51 +26,71 @@ alta calidad. El negocio opera bajo las siguientes reglas:
   que permite administrar productos, pedidos y clientes.
 
 ---
-
 ## Entidades y Atributos
 
 ### Usuario
-- id_usuario
-- nombre_completo (nombre,apellido)
-- correo
-- contraseña
-- rol (cliente / admin)
+- id_Usuario
+- Nombre_Completo (Nombre, Apellido) — atributo compuesto
+- Correo
+- Contraseña
+
+### Cliente (subclase de Usuario)
+- Direccion
+
+### Administrador (subclase de Usuario)
+- Nivel_Acceso
 
 ### Producto
-- id_producto
-- nombre
-- descripcion
-- precio
-- imagen
+- id_Producto
+- Nombre
+- Descripcion
+- Precio
+- Imagen
+- Stock
+- Personalizable 
 
 ### Categoria
-- id_categoria
-- nombre (Tortas, Cookies, Pies, Tartas, etc.)
+- id_Categoria
+- Nombre (Tortas, Cookies, Pies, Tartas, Cupcakes, Alfajores, Salado, Petit Fours)
 
 ### Pedido
-- id_pedido
-- fecha
-- total
-- estado (pendiente / entregado)
+- id_Pedido
+- Fecha_Entrega
+- Total
+- Estado (pendiente / en preparacion / listo / entregado)
+- Tipo_Entrega (delivery / retiro en tienda)
+- Direccion_Entrega
+- Nota_Personalizacion
 
 ### Detalle_Pedido
-- id_detalle
-- cantidad
-- subtotal
+- id_Detalle
+- Cantidad
+- Subtotal
 
 ### Comentario
-- id_comentario
-- texto
-- fecha
+- id_Comentario
+- Texto
+- Fecha
+- Calificacion (1 a 5 estrellas)
+
+### Factura
+- id_Factura
+- Numero_Factura
+- Fecha_Emision
+- Total
+- Estado (emitida / enviada / pagada)
 
 ---
 
 ## Relaciones
 
-- Un **Usuario** puede tener muchos **Pedidos**
-- Un **Pedido** puede tener muchos **Productos** (a través de Detalle_Pedido)
-- Un **Producto** pertenece a una **Categoría**
-- Un **Usuario** puede dejar muchos **Comentarios**
+- Un **Usuario** se especializa en **Cliente** o **Administrador** (especialización disjunta)
+- Un **Cliente** puede realizar muchos **Pedidos**
+- Un **Pedido** contiene uno o varios **Detalle_Pedido**
+- Un **Producto** puede estar en muchos **Detalle_Pedido**
+- Una **Categoria** clasifica muchos **Productos**
+- Un **Cliente** puede escribir muchos **Comentarios**
+- Un **Pedido** genera una **Factura**
 
 ---
 
