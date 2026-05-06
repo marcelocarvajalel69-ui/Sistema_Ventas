@@ -11,11 +11,7 @@
     <title>Dashboard — Botaniq Bake</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Jost', sans-serif;
@@ -42,24 +38,21 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-            .sidebar-brand h1 {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 24px;
-                font-weight: 300;
-                letter-spacing: 3px;
-            }
-
-            .sidebar-brand span {
-                font-size: 9px;
-                letter-spacing: 4px;
-                color: #b89a6a;
-                text-transform: uppercase;
-            }
-
-        .sidebar-menu {
-            padding: 30px 0;
-            flex: 1;
+        .sidebar-brand h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 3px;
         }
+
+        .sidebar-brand span {
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: #b89a6a;
+            text-transform: uppercase;
+        }
+
+        .sidebar-menu { padding: 30px 0; flex: 1; }
 
         .menu-item {
             display: block;
@@ -73,11 +66,11 @@
             border-left: 3px solid transparent;
         }
 
-            .menu-item:hover, .menu-item.active {
-                color: white;
-                background: rgba(184,154,106,0.15);
-                border-left-color: #b89a6a;
-            }
+        .menu-item:hover, .menu-item.active {
+            color: white;
+            background: rgba(184,154,106,0.15);
+            border-left-color: #b89a6a;
+        }
 
         .menu-label {
             padding: 20px 30px 8px;
@@ -101,33 +94,27 @@
             transition: 0.3s;
         }
 
-            .logout:hover {
-                color: #b89a6a;
-            }
+        .logout:hover { color: #b89a6a; }
 
-        .main {
-            margin-left: 240px;
-            flex: 1;
-            padding: 40px;
-        }
+        .main { margin-left: 240px; flex: 1; padding: 40px; }
 
         .page-header {
             margin-bottom: 36px;
         }
 
-            .page-header h2 {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 28px;
-                font-weight: 300;
-                letter-spacing: 2px;
-            }
+        .page-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
 
-            .page-header p {
-                font-size: 12px;
-                color: #7a6858;
-                margin-top: 4px;
-                letter-spacing: 1px;
-            }
+        .page-header p {
+            font-size: 12px;
+            color: #7a6858;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
 
         .cards {
             display: grid;
@@ -159,13 +146,29 @@
             line-height: 1;
         }
 
+        .card-value span { font-size: 18px; }
+
         .card-sub {
             font-size: 11px;
             color: #7a6858;
             margin-top: 8px;
         }
 
+        .sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
         .section {
+            background: white;
+            border: 1px solid #f2ead8;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(42,31,23,0.05);
+        }
+
+        .section-full {
             background: white;
             border: 1px solid #f2ead8;
             padding: 28px;
@@ -205,9 +208,7 @@
             color: #2a1f17;
         }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
+        tr:last-child td { border-bottom: none; }
 
         .badge {
             display: inline-block;
@@ -218,14 +219,20 @@
             border-radius: 20px;
         }
 
-        .badge-pending {
-            background: #fef3cd;
-            color: #856404;
-        }
+        .badge-pendiente { background: #fef3cd; color: #856404; }
+        .badge-preparacion { background: #cfe2ff; color: #084298; }
+        .badge-listo { background: #e2d9f3; color: #432874; }
+        .badge-entregado { background: #d1e7dd; color: #0a5236; }
+        .badge-delivery { background: #f8d7da; color: #842029; }
+        .badge-retiro { background: #d1e7dd; color: #0a5236; }
 
-        .badge-done {
-            background: #d1e7dd;
-            color: #0a5236;
+        .stars { color: #b89a6a; font-size: 12px; }
+
+        .empty {
+            text-align: center;
+            color: #7a6858;
+            padding: 24px;
+            font-size: 13px;
         }
     </style>
 </head>
@@ -233,32 +240,34 @@
 
     <aside class="sidebar">
         <div class="sidebar-brand">
-            <h1>Botaniq Bake</h1>
+            <h1>Botaniq</h1>
+            <span>Admin Panel</span>
         </div>
         <nav class="sidebar-menu">
             <div class="menu-label">Principal</div>
-            <a href="#" class="menu-item active">Inicio</a>
+            <a href="/Admin/Dashboard" class="menu-item active">Dashboard</a>
             <div class="menu-label">Gestión</div>
-            <a href="#" class="menu-item">Productos</a>
-            <a href="#" class="menu-item">Usuarios</a>
-            <a href="#" class="menu-item">Pedidos</a>
-            <a href="#" class="menu-item">Facturas</a>
-            <a href="#" class="menu-item">Comentarios</a>
+            <a href="/Admin/Productos" class="menu-item">Productos</a>
+            <a href="/Admin/Usuarios" class="menu-item">Usuarios</a>
+            <a href="/Admin/Pedidos" class="menu-item">Pedidos</a>
+            <a href="/Admin/Facturas" class="menu-item">Facturas</a>
+            <a href="/Admin/Comentarios" class="menu-item">Comentarios</a>
         </nav>
         <div class="sidebar-footer">
-            <a href="#" class="logout">Cerrar sesión</a>
+            <a href="/Account/Login" class="logout">Cerrar sesión</a>
         </div>
     </aside>
 
     <main class="main">
         <div class="page-header">
-            <h2>Panel Administrador</h2>
+            <h2>Dashboard</h2>
+            <p>Bienvenido al panel de administración de Botaniq Bake</p>
         </div>
 
         <div class="cards">
             <div class="card">
                 <div class="card-label">Ventas del mes</div>
-                <div class="card-value"><span style="font-size:25px">$U</span> 0</div>
+                <div class="card-value"><span>$U</span> 0</div>
                 <div class="card-sub">Total acumulado</div>
             </div>
             <div class="card">
@@ -267,18 +276,23 @@
                 <div class="card-sub">Por procesar</div>
             </div>
             <div class="card">
-                <div class="card-label">Usuarios registrados</div>
+                <div class="card-label">Clientes registrados</div>
                 <div class="card-value">0</div>
-                <div class="card-sub">Clientes activos</div>
+                <div class="card-sub">Cuentas activas</div>
             </div>
             <div class="card">
                 <div class="card-label">Productos</div>
                 <div class="card-value">0</div>
                 <div class="card-sub">En catálogo</div>
             </div>
+            <div class="card">
+                <div class="card-label">Stock bajo</div>
+                <div class="card-value">0</div>
+                <div class="card-sub">Productos con poco stock</div>
+            </div>
         </div>
 
-        <div class="section">
+        <div class="section-full">
             <div class="section-title">Últimos Pedidos</div>
             <table>
                 <thead>
@@ -286,39 +300,58 @@
                         <th>ID</th>
                         <th>Cliente</th>
                         <th>Total</th>
-                        <th>Fecha</th>
+                        <th>Fecha Entrega</th>
+                        <th>Tipo</th>
                         <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="5" style="text-align:center; color:#7a6858; padding:24px;">
-                            No hay pedidos aún
-                        </td>
+                        <td colspan="6" class="empty">No hay pedidos aún</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="section">
-            <div class="section-title">Últimos Comentarios</div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Usuario</th>
-                        <th>Comentario</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="3" style="text-align:center; color:#7a6858; padding:24px;">
-                            No hay comentarios aún
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="sections">
+            <div class="section">
+                <div class="section-title">Últimas Reseñas</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Comentario</th>
+                            <th>Calificación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3" class="empty">No hay reseñas aún</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Últimas Facturas</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Cliente</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4" class="empty">No hay facturas aún</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
     </main>
 
 </body>

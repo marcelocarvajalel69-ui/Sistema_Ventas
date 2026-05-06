@@ -55,7 +55,9 @@ TemporaryDependencyNodeTargetIdentifier=net8.0
 [sourceFiles]
 Controllers/
  AccountController.cs
+ AdminController.cs
  HomeController.cs
+ ProductsController.cs
 Models/ErrorViewModel.cs
 obj/Debug/net8.0/
  .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
@@ -407,6 +409,7 @@ Views/
  Home/
   Index.cshtml
   Privacy.cshtml
+ Products/Products.cshtml
  Shared/
   Error.cshtml
   _Layout.cshtml
@@ -421,6 +424,7 @@ Views/
  Home/
   Index.cshtml
   Privacy.cshtml
+ Products/Products.cshtml
  Shared/
   Error.cshtml
   _Layout.cshtml
