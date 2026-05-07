@@ -58,7 +58,22 @@ Controllers/
  AdminController.cs
  HomeController.cs
  ProductsController.cs
-Models/ErrorViewModel.cs
+Data/AppDbContext.cs
+Migrations/
+ 20260507015731_InitialCreate.cs
+ 20260507015731_InitialCreate.Designer.cs
+ AppDbContextModelSnapshot.cs
+Models/
+ Administrador.cs
+ Categoria.cs
+ Cliente.cs
+ Comentario.cs
+ Detalle_Pedido.cs
+ ErrorViewModel.cs
+ Factura.cs
+ Pedido.cs
+ Producto.cs
+ Usuario.cs
 obj/Debug/net8.0/
  .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
  Proyecto_Sistema_Ventas.AssemblyInfo.cs
@@ -370,6 +385,13 @@ Program.cs
  System.Xml.XPath.dll
  System.Xml.XPath.XDocument.dll
  WindowsBase.dll
+<NUGET>/
+ bcrypt.net-next/4.1.0/lib/netstandard2.1/BCrypt.Net-Next.dll
+ microsoft.entityframeworkcore.abstractions/8.0.0/lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+ microsoft.entityframeworkcore.relational/8.0.0/lib/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+ microsoft.entityframeworkcore/8.0.0/lib/net8.0/Microsoft.EntityFrameworkCore.dll
+ mysqlconnector/2.3.5/lib/net8.0/MySqlConnector.dll
+ pomelo.entityframeworkcore.mysql/8.0.0/lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll
 
 [analyzerReferences]
 <DOTNET>/packs/Microsoft.AspNetCore.App.Ref/8.0.25/analyzers/dotnet/cs/
@@ -397,6 +419,10 @@ Program.cs
 <DOTNET>/sdk/9.0.312/Sdks/Microsoft.NET.Sdk/analyzers/
  Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
  Microsoft.CodeAnalysis.NetAnalyzers.dll
+<NUGET>/microsoft.codeanalysis.analyzers/3.3.3/analyzers/dotnet/cs/
+ Microsoft.CodeAnalysis.Analyzers.dll
+ Microsoft.CodeAnalysis.CSharp.Analyzers.dll
+<NUGET>/microsoft.entityframeworkcore.analyzers/8.0.0/analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll
 
 [analyzerConfigFiles]
 <DOTNET>/sdk/9.0.312/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_8_default.globalconfig
