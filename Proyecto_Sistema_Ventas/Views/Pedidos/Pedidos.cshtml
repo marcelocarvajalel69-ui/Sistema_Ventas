@@ -1,0 +1,367 @@
+@{
+    ViewData["Title"] = "Pedidos";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos — Botaniq Bake</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            background: #faf6f1;
+            color: #2a1f17;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background: #2a1f17;
+            color: white;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+        }
+
+        .sidebar-brand {
+            text-align: center;
+            padding: 0 20px 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar-brand h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .sidebar-brand span {
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: #b89a6a;
+            text-transform: uppercase;
+        }
+
+        .sidebar-menu { padding: 30px 0; flex: 1; }
+
+        .menu-item {
+            display: block;
+            padding: 14px 30px;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            border-left: 3px solid transparent;
+        }
+
+        .menu-item:hover, .menu-item.active {
+            color: white;
+            background: rgba(184,154,106,0.15);
+            border-left-color: #b89a6a;
+        }
+
+        .menu-label {
+            padding: 20px 30px 8px;
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.3);
+            text-transform: uppercase;
+        }
+
+        .sidebar-footer {
+            padding: 20px 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logout {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .logout:hover { color: #b89a6a; }
+
+        .main { margin-left: 240px; flex: 1; padding: 40px; }
+
+        .page-header {
+            margin-bottom: 36px;
+        }
+
+        .page-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .page-header p {
+            font-size: 12px;
+            color: #7a6858;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        .filtros {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .filtro-btn {
+            padding: 8px 20px;
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid #f2ead8;
+            background: white;
+            color: #7a6858;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filtro-btn.active, .filtro-btn:hover {
+            background: #2a1f17;
+            color: white;
+            border-color: #2a1f17;
+        }
+
+        .section {
+            background: white;
+            border: 1px solid #f2ead8;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(42,31,23,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th {
+            text-align: left;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #b89a6a;
+            padding: 10px 12px;
+            border-bottom: 1px solid #f2ead8;
+        }
+
+        td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #faf6f1;
+            color: #2a1f17;
+            vertical-align: middle;
+        }
+
+        tr:last-child td { border-bottom: none; }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 20px;
+        }
+
+        .badge-pendiente { background: #fef3cd; color: #856404; }
+        .badge-preparacion { background: #cfe2ff; color: #084298; }
+        .badge-listo { background: #e2d9f3; color: #432874; }
+        .badge-entregado { background: #d1e7dd; color: #0a5236; }
+        .badge-delivery { background: #f8d7da; color: #842029; }
+        .badge-retiro { background: #d1e7dd; color: #0a5236; }
+
+        .btn {
+            padding: 6px 14px;
+            font-family: 'Jost', sans-serif;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-estado {
+            background: transparent;
+            border: 1px solid #b89a6a;
+            color: #b89a6a;
+        }
+
+        .btn-estado:hover { background: #b89a6a; color: white; }
+
+        .empty {
+            text-align: center;
+            color: #7a6858;
+            padding: 32px;
+        }
+
+        /* MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(42,31,23,0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal {
+            background: white;
+            padding: 40px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 20px 60px rgba(42,31,23,0.2);
+        }
+
+        .modal h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f2ead8;
+        }
+
+        label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #7a6858;
+            margin-bottom: 6px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #f2ead8;
+            background: #faf6f1;
+            font-family: 'Jost', sans-serif;
+            font-size: 13px;
+            color: #2a1f17;
+            outline: none;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        select:focus { border-color: #b89a6a; background: white; }
+
+        .modal-actions { display: flex; gap: 12px; }
+
+        .btn-primary { background: #2a1f17; color: white; padding: 12px 24px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; font-family: 'Jost', sans-serif; }
+        .btn-primary:hover { background: #b89a6a; }
+        .btn-cancel { background: transparent; border: 1px solid #f2ead8; color: #7a6858; padding: 12px 24px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s; font-family: 'Jost', sans-serif; }
+        .btn-cancel:hover { border-color: #2a1f17; color: #2a1f17; }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <h1>Botaniq</h1>
+            <span>Admin Panel</span>
+        </div>
+        <nav class="sidebar-menu">
+            <div class="menu-label">Principal</div>
+            <a href="/Admin/Dashboard" class="menu-item">Dashboard</a>
+            <div class="menu-label">Gestión</div>
+            <a href="/Admin/Productos" class="menu-item">Productos</a>
+            <a href="/Admin/Usuarios" class="menu-item">Usuarios</a>
+            <a href="/Admin/Pedidos" class="menu-item active">Pedidos</a>
+            <a href="/Admin/Facturas" class="menu-item">Facturas</a>
+            <a href="/Admin/Comentarios" class="menu-item">Comentarios</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="/Account/Login" class="logout">Cerrar sesión</a>
+        </div>
+    </aside>
+
+    <main class="main">
+        <div class="page-header">
+            <h2>Pedidos</h2>
+            <p>Gestión de pedidos de Botaniq Bake</p>
+        </div>
+
+        <div class="filtros">
+            <button class="filtro-btn active">Todos</button>
+            <button class="filtro-btn">Pendientes</button>
+            <button class="filtro-btn">En Preparación</button>
+            <button class="filtro-btn">Listos</button>
+            <button class="filtro-btn">Entregados</button>
+        </div>
+
+        <div class="section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Total</th>
+                        <th>Fecha Entrega</th>
+                        <th>Tipo</th>
+                        <th>Personalización</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8" class="empty">No hay pedidos registrados</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- MODAL CAMBIAR ESTADO -->
+    <div class="modal-overlay" id="modalEstado">
+        <div class="modal">
+            <h3>Cambiar Estado</h3>
+            <label>Nuevo Estado</label>
+            <select id="nuevoEstado">
+                <option value="pendiente">Pendiente</option>
+                <option value="en preparacion">En Preparación</option>
+                <option value="listo">Listo</option>
+                <option value="entregado">Entregado</option>
+            </select>
+            <div class="modal-actions">
+                <button class="btn-primary">Guardar</button>
+                <button class="btn-cancel" onclick="cerrarModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function abrirModal() {
+            document.getElementById('modalEstado').classList.add('active');
+        }
+        function cerrarModal() {
+            document.getElementById('modalEstado').classList.remove('active');
+        }
+    </script>
+
+</body>
+</html>

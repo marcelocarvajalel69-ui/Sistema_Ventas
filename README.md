@@ -109,7 +109,6 @@ Se desea diseñar una base de datos para gestionar un sistema de ventas en líne
 ## Diagrama Entidad Relacion (ER)
 
 ![Diagrama ER](imagenes/Diagrama%20ER.png)
-
 ---
 
 ## Esquema Relacional
@@ -125,5 +124,29 @@ Se desea diseñar una base de datos para gestionar un sistema de ventas en líne
 ---
 
 ## Gestion (Productos)
+
+![Productos](imagenes/products.png)
+
+---
+
+## Gestion (Usuarios)
+
+![Productos](imagenes/products.png)
+
+---
+
+## Gestion (Pedidos)
+
+![Productos](imagenes/products.png)
+
+---
+
+## Gestion (Facturas)
+
+![Productos](imagenes/products.png)
+
+---
+
+## Gestion (Comentarios)
 
 ![Productos](imagenes/products.png)

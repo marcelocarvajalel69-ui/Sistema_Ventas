@@ -56,8 +56,12 @@ TemporaryDependencyNodeTargetIdentifier=net8.0
 Controllers/
  AccountController.cs
  AdminController.cs
+ ComentarioController.cs
+ FacturaController.cs
  HomeController.cs
+ PedidoController.cs
  ProductsController.cs
+ UsuarioController.cs
 Data/AppDbContext.cs
 Migrations/
  20260507015731_InitialCreate.cs
@@ -432,14 +436,18 @@ obj/Debug/net8.0/Proyecto_Sistema_Ventas.GeneratedMSBuildEditorConfig.editorconf
 Views/
  Account/Login.cshtml
  Admin/Dashboard.cshtml
+ Comentarios/Comentarios.cshtml
+ Facturas/Facturas.cshtml
  Home/
   Index.cshtml
   Privacy.cshtml
+ Pedidos/Pedidos.cshtml
  Products/Products.cshtml
  Shared/
   Error.cshtml
   _Layout.cshtml
   _ValidationScriptsPartial.cshtml
+ Usuarios/Usuarios.cshtml
  _ViewImports.cshtml
  _ViewStart.cshtml
 
@@ -447,13 +455,17 @@ Views/
 Views/
  Account/Login.cshtml
  Admin/Dashboard.cshtml
+ Comentarios/Comentarios.cshtml
+ Facturas/Facturas.cshtml
  Home/
   Index.cshtml
   Privacy.cshtml
+ Pedidos/Pedidos.cshtml
  Products/Products.cshtml
  Shared/
   Error.cshtml
   _Layout.cshtml
   _ValidationScriptsPartial.cshtml
+ Usuarios/Usuarios.cshtml
  _ViewImports.cshtml
  _ViewStart.cshtml
